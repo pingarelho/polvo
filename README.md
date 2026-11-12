@@ -27,11 +27,11 @@ I built this synth using simple perfboard ([see below](#perfboard-build)), but u
 | Microcontroller | Raspberry Pi Pico 2. This is the full-size development board from Raspberry Pi, although you could use any RP2350 board with enough I/O. RP2040 boards should also work |
 | Display | [MSP2807](https://www.lcdwiki.com/2.8inch_SPI_Module_ILI9341_SKU:MSP2807). ILI9341, 2.8-inch, 320x240 TFT. I used the generic red board with an SPI-only interface, touchscreen and an SD card slot, although I didn't use either of these features |
 | DAC | PCM5102A generic purple board
-| ADC | [MCP3008 IC](https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf). Used to obtain the values of the modules
+| ADC | [MCP3008 IC](https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf). Used to obtain readings of the modules
 | Resistors | (8x) 10 kΩ
 | Encoders | (2x) [SR PASSIVES EC11E12-15P30C-SW](https://www.tme.eu/en/details/ec11e12-15p30c-sw/incremental-type-encoders/sr-passives/) (15imp/revol with switch) |
 | Switch | Kailh 1350 Low Profile Choc (linear Red)
-| 3.5mm jacks | (7x) [Ninigi JC-204S](https://www.tme.eu/en/details/jc-204s/jack-connectors/ninigi/). These were the cheapest option available locally. Any connector that fits within the space constraints is fine. You only need a stereo connector for the DAC output; the connectors for the modules can be mono
+| 3.5mm jacks | (7x) [Ninigi JC-204S](https://www.tme.eu/en/details/jc-204s/jack-connectors/ninigi/). These were the cheapest option available to me. Any connector that fits within the space constraints is fine. You only need a stereo connector for the DAC output; the connectors for the modules can be mono
 | JST XH male/female connectors | (1x) 2-pin, (1x) 3-pin, (1x) 9-pin. As I didn't have any 9-pin connectors, I used one 2-pin and one 7-pin instead
 | Male/female pin headers | Mainly used for making the display detachable from the board
 | Knobs and keycaps | You could try picking up panel extension knobs, but it might be easier to 3D print your own, like I did. Any Kailh Choc keycap will work for the Shift button, but I also 3D printed a model I found online ([see below](#3d-models-and-printing))
@@ -43,7 +43,7 @@ I built this synth using simple perfboard ([see below](#perfboard-build)), but u
 | Photoresistor (LDR) | GL5516 Ø5mm (5–10 kΩ at 10 lx)
 | Potentiometer | 5 kΩ
 | Switch | Kailh 1350 Low Profile Choc (linear Red)
-| 3.5mm jack | [Ninigi JC-204S](https://www.tme.eu/en/details/jc-204s/jack-connectors/ninigi/). Same as above
+| 3.5mm jack | [Ninigi JC-204S](https://www.tme.eu/en/details/jc-204s/jack-connectors/ninigi/)
 | JST SM male/female connectors | These make assembly and disassembly solderless
 | Magnet | Ø10x5mm Neodymium N52
 | Extra weight | (20x) 1-cent euro coins
@@ -52,9 +52,9 @@ I built this synth using simple perfboard ([see below](#perfboard-build)), but u
 
 ## Wavetables
 
-Polvo uses wavetables that are stored as standard WAVE files. Each wavetable contains 64 waveforms, one after the other, with 256 samples in each waveform. I took this idea from [todbot's Synthio Tutorial](https://todbot.github.io/CircuitPython_Synthio_Tutorial/README-4-Oscillators-Wavetables.html#use-a-wavetable). As todbot points out, the website that originally shared these wavetables no longer exists, but he has [archived them in his repository](https://github.com/todbot/CircuitPython_Synthio_Tutorial/releases/download/0.3/wav-files-waveeditonline-Jul2023.zip).
+Polvo uses wavetables that are stored as standard WAVE files. Each wavetable contains 64 waveforms, one after the other, with 256 samples in each waveform. I took this idea from [todbot's Synthio Tutorial](https://todbot.github.io/CircuitPython_Synthio_Tutorial/README-4-Oscillators-Wavetables.html#use-a-wavetable). The website that originally shared these wavetables no longer exists, but todbot has [archived them in his repository](https://github.com/todbot/CircuitPython_Synthio_Tutorial/releases/download/0.3/wav-files-waveeditonline-Jul2023.zip).
 
-To load these files into the synthesizer, connect the device to your computer via USB while pressing the Shift button — I will explain why this is necessary [later](#libraries-and-dependencies) — and move the wavetables to the `wavetables` folder.
+To load these files into the synthesizer, connect the device to your computer via USB while holding down the Shift button — I will explain why this is necessary [later](#libraries-and-dependencies) — then move the wavetables to a new folder called `wavetables` on the `CIRCUITPY` drive.
 
 The wavetable scanning code was heavily inspired by [todbot's Tutorial](https://todbot.github.io/CircuitPython_Synthio_Tutorial/README-4-Oscillators-Wavetables.html#wavetable-scanning).
 
@@ -64,7 +64,7 @@ The wavetable scanning code was heavily inspired by [todbot's Tutorial](https://
 
 To speed up the process of drawing to the display, Polvo uses [`picogame`](https://picogame.makerclass.cz), a CircuitPython game engine with optimizations for display updates. It also provides useful libraries such as `picogame_clock`.
 
-**Using `picogame` on a custom board like mine requires installing the [appropriate firmware](https://picogame.makerclass.cz/supported-hardware/#download-firmware) (pico2.uf2)** and copying a [special boot.py file](https://github.com/MakerClassCZ/picogame/tree/main/custom_board/firmware_boot) to the CIRCUITPY drive.
+**Using `picogame` on a custom board like mine requires installing the [appropriate firmware](https://picogame.makerclass.cz/supported-hardware/#download-firmware) (pico2.uf2)** and copying a [special boot.py file](https://github.com/MakerClassCZ/picogame/tree/main/custom_board/firmware_boot) to the `CIRCUITPY` drive.
 
 I further modified this file to enable or disable read-only mode at boot depending on whether the Shift button is pressed. This is necessary in order to save the patches created using the GUI (more information can be found [here](https://learn.adafruit.com/circuitpython-essentials/circuitpython-storage)). **You can use the boot.py file available in this repository** or patch your own.
 
