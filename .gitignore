@@ -1,0 +1,10 @@
+circup-local
+wavetables/
+.vscode/
+venv/
+presets/
+picogui/
+picogame-libs/
+lib/
+__pycache__/
+boot_out.txt

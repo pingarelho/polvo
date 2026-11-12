@@ -1,0 +1,8 @@
+# Display
+PICOGAME_DISPLAY = "ili9341"
+PICOGAME_PINS    = "SCK=GP14 MOSI=GP11 DC=GP13 CS=GP10 RST=GP12 BL=GP15"
+PICOGAME_SIZE    = "320x240"       # WIDTH x HEIGHT; WIDTH > HEIGHT = landscape
+PICOGAME_FLIP    = "v"             # "", "h", "v", "hv" — orientation (see below)
+PICOGAME_INVERT  = 0               # colours negative? -> 1
+PICOGAME_BGR     = 1               # red/blue swapped? -> 1
+PICOGAME_BAUD    = 24000000        # lower on long breadboard wires

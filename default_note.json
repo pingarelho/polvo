@@ -1,0 +1,110 @@
+{
+    "trigger": {
+        "module": 0,
+        "attack_threshold": 300,
+        "release_threshold": 300,
+        "use_control": true
+    },
+    "pitch": {
+        "value": 60
+    },
+    "fine_tune": {
+        "value": 64,
+        "use_control": false,
+        "control": {
+            "module": 0,
+            "module_min": 0,
+            "module_max": 1023,
+            "property_min": 0,
+            "property_max": 127,
+            "curve": "exp"
+        }
+    },
+    "amplitude": {
+        "value": 127,
+        "use_control": false,
+        "control": {
+            "module": 0,
+            "module_min": 0,
+            "module_max": 1023,
+            "property_min": 0,
+            "property_max": 127,
+            "curve": "log"
+        }
+    },
+    "wavetable": {
+        "value": ""
+    },
+    "position": {
+        "value": 0,
+        "use_control": false,
+        "control": {
+            "module": 0,
+            "module_min": 0,
+            "module_max": 1023,
+            "property_min": 0,
+            "property_max": 1023,
+            "curve": "linear"
+        }
+    },
+    "panning": {
+        "value": 64,
+        "use_control": false,
+        "control": {
+            "module": 0,
+            "module_min": 0,
+            "module_max": 1023,
+            "property_min": 0,
+            "property_max": 127,
+            "curve": "linear"
+        }
+    },
+    "attack": {
+        "value": 12,
+        "use_control": false,
+        "control": {
+            "module": 0,
+            "module_min": 0,
+            "module_max": 1023,
+            "property_min": 0,
+            "property_max": 127,
+            "curve": "linear"
+        }
+    },
+    "decay": {
+        "value": 0,
+        "use_control": false,
+        "control": {
+            "module": 0,
+            "module_min": 0,
+            "module_max": 1023,
+            "property_min": 0,
+            "property_max": 127,
+            "curve": "linear"
+        }
+    },
+    "sustain": {
+        "value": 127,
+        "use_control": false,
+        "control": {
+            "module": 0,
+            "module_min": 0,
+            "module_max": 1023,
+            "property_min": 0,
+            "property_max": 127,
+            "curve": "linear"
+        }
+    },
+    "release": {
+        "value": 25,
+        "use_control": false,
+        "control": {
+            "module": 0,
+            "module_min": 0,
+            "module_max": 1023,
+            "property_min": 0,
+            "property_max": 127,
+            "curve": "linear"
+        }
+    }
+}
