@@ -127,4 +127,4 @@ The FreeCAD projects and STL files for all the models can be found in the `3d_mo
 ## Notes
 
 - All photos in this `README` were taken by Diana Paiva.
-- The project's concept, code and documentation were developed by a human (myself), with some basic assistance from ChatGPT and DeepL Writer.
+- The project's concept, code and documentation were developed by a human (myself), with some basic assistance from ChatGPT and DeepL Write.
